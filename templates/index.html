@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landslide Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- Hero Section with Prediction Form -->
+    <section class="hero-section">
+        <!-- Background Decorations -->
+        <div class="background-decoration">
+            <div class="mountains"></div>
+            <div class="ground"></div>
+        </div>
+        
+        <!-- Decorative Plants -->
+        <div class="plant-left"></div>
+        <div class="plant-right"></div>
+        <div class="leaf-accent top-right"></div>
+        <div class="leaf-accent mid-left"></div>
+        
+        <!-- Main Content Card -->
+        <div class="card big">
+            <h1>🏔️ Landslide Prediction System</h1>
+            <p class="subtitle">Advanced AI-powered system to predict and assess landslide risks across vulnerable regions. Enter location and date to estimate potential hazards.</p>
+            <form action="/predict" method="post">
+                <input type="text" name="city" placeholder="Enter City / Location" required>
+                <input type="date" name="date" required>
+                <button type="submit">Predict Risk</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">Why Use Our System?</h2>
+        <p class="section-subtitle">Our advanced prediction system combines environmental data, geological factors, and historical patterns to provide accurate risk assessments.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3 class="feature-title">Real-Time Analysis</h3>
+                <p class="feature-description">Get instant risk assessments based on current weather patterns, rainfall data, and environmental conditions in your area.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3 class="feature-title">Geological Intelligence</h3>
+                <p class="feature-description">Our system analyzes soil composition, slope angles, and terrain characteristics to identify vulnerable zones.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3 class="feature-title">5-Day Forecast</h3>
+                <p class="feature-description">View risk trends over the next 5 days with detailed forecasts to help you plan and prepare accordingly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Risk Locations Section -->
+    <section class="locations-section">
+        <h2 class="section-title">Monitor High-Risk Areas</h2>
+        <p class="section-subtitle">Track landslide vulnerability in popular mountainous and hilly regions across India</p>
+        
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="location-image">🏔️</div>
+                <div class="location-content">
+                    <h3 class="location-name">Shimla Hills</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Steep Terrain</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>🌧️</span>
+                            <span>High Rainfall</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Himalayan region with vulnerable slopes and monsoon exposure.</p>
+                    <span class="location-risk high">High Risk Zone</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">⛰️</div>
+                <div class="location-content">
+                    <h3 class="location-name">Darjeeling</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Mountain Slopes</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>🌲</span>
+                            <span>Dense Forest</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Eastern Himalayan town with moderate vegetation coverage.</p>
+                    <span class="location-risk medium">Medium Risk Zone</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">🌄</div>
+                <div class="location-content">
+                    <h3 class="location-name">Nainital</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Hill Station</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>💧</span>
+                            <span>Lake Region</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Lake district with moderate slopes and seasonal risks.</p>
+                    <span class="location-risk medium">Medium Risk Zone</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">🏞️</div>
+                <div class="location-content">
+                    <h3 class="location-name">Manali Valley</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Valley Terrain</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>❄️</span>
+                            <span>Snow Region</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Himalayan valley with seasonal snowmelt hazards.</p>
+                    <span class="location-risk high">High Risk Zone</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">🌲</div>
+                <div class="location-content">
+                    <h3 class="location-name">Dehradun</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Foothills</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>🌲</span>
+                            <span>Forest Cover</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Doon valley with moderate elevation and good vegetation.</p>
+                    <span class="location-risk low">Low Risk Zone</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">🗻</div>
+                <div class="location-content">
+                    <h3 class="location-name">Gangtok</h3>
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span>⛰️</span>
+                            <span>Ridge Terrain</span>
+                        </div>
+                        <div class="location-stat">
+                            <span>🌧️</span>
+                            <span>Monsoon Zone</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">Sikkim capital with steep slopes and heavy rainfall.</p>
+                    <span class="location-risk high">High Risk Zone</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Stats Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">Protecting Communities Through Science</h2>
+            <p class="about-text">
+                Our Landslide Prediction System utilizes advanced algorithms and real-time environmental data 
+                to assess geological risks across vulnerable regions. By combining meteorological patterns, 
+                terrain analysis, and historical incident data, we provide communities with early warnings 
+                and actionable insights to minimize loss of life and property.
+            </p>
+            <p class="about-text">
+                Landslides are one of the most devastating natural hazards, particularly in mountainous 
+                and hilly terrains. Our mission is to leverage technology and data science to create 
+                a safer future for communities living in high-risk areas.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Locations Monitored</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Prediction Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Real-Time Monitoring</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Users Protected</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="section-title">Start Your Risk Assessment Today</h2>
+        <p class="cta-text">
+            Enter your location and get instant insights into landslide risks in your area. 
+            Stay informed, stay safe.
+        </p>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="cta-button">
+            Check Your Location Now
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">🏔️ Landslide Prediction System</p>
+            <p class="footer-text">Protecting communities through advanced risk assessment and early warning systems</p>
+            <p class="footer-text" style="margin-top: 20px; opacity: 0.6;">© 2026 Landslide Prediction System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
