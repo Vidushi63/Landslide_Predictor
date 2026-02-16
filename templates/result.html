@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Background Decorations -->
+    <div class="background-decoration">
+        <div class="mountains"></div>
+        <div class="ground"></div>
+    </div>
+    
+    <!-- Decorative Plants -->
+    <div class="plant-left"></div>
+    <div class="plant-right"></div>
+    <div class="leaf-accent top-right"></div>
+    <div class="leaf-accent mid-left"></div>
+
+    <!-- Main Content Card -->
+    <div class="card">
+        <h1>Landslide Risk Result</h1>
+
+        <div class="risk {{ risk|lower }}">{{ risk }} Risk</div>
+
+        <p><b>Location:</b> {{ city }}</p>
+        <p><b>Date:</b> {{ date }}</p>
+        <p><b>Estimated Environmental Trigger:</b> {{ rainfall }} mm</p>
+        <p><b>Risk Score:</b> {{ score }}/100</p>
+
+        <h3>📊 Risk Forecast</h3>
+        <canvas id="chart"></canvas>
+
+        <a class="btn" href="/">Check Another</a>
+    </div>
+
+    <script>
+        const trendData = JSON.parse('{{ trend | tojson | safe }}');
+
+        new Chart(document.getElementById('chart'), {
+            type: 'line',
+            data: {
+                labels: ['Today', '+1', '+2', '+3', '+4'],
+                datasets: [{
+                    label: 'Risk Index',
+                    data: trendData,
+                    fill: true,
+                    backgroundColor: 'rgba(74, 144, 164, 0.2)',
+                    borderColor: 'rgba(74, 144, 164, 1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointBackgroundColor: 'rgba(74, 144, 164, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#1a472a',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            color: '#5a7a68'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            color: '#5a7a68'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
